@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khushahal Sharma — Portfolio</title>
+  <meta name="description" content="Penetration testing, SOC detections, and cloud security. Projects, experience, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <ul>
+      <li><a class="nav-link" href="#home">About</a></li>
+      <li><a class="nav-link" href="#certifications">Certifications</a></li>
+      <li><a class="nav-link" href="#skills">Skills</a></li>
+      <li><a class="nav-link" href="#projects">Projects</a></li>
+      <li><a class="nav-link" href="#experience">Experience</a></li>
+      <li><a class="nav-link" href="#achievements">Achievements</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="home">
+<section id="about" class="section">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="accent">About Me</h2>
+      <p>
+        I am a cybersecurity analyst with experience in both <strong>Vulnerability Assessment & Penetration Testing (VAPT)</strong> 
+        and <strong>Security Operations (SOC)</strong>. My background includes 6 months of professional engagement and over a year of 
+        self-driven projects in offensive and defensive security.
+      </p>
+      <p>
+        Skilled in discovering and exploiting <strong>web/API vulnerabilities</strong> using tools like 
+        <strong>Burp Suite Pro</strong> and <strong>Nessus</strong>, as well as detecting and responding to threats with 
+        <strong>Microsoft Sentinel</strong>, <strong>Defender XDR</strong>, and <strong>AWS security services</strong>.
+      </p>
+      <p>
+        Proficient in <strong>KQL</strong>, <strong>OWASP Top 10</strong>, <strong>MITRE ATT&CK</strong>, and AWS fundamentals such as 
+        <strong>IAM</strong>, <strong>S3</strong>, <strong>EC2</strong>, and <strong>VPC</strong>. I focus on real-world attack simulations, 
+        cloud security, and building effective threat detection strategies.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="certifications" class="section">
+  <div class="container">
+    <h2 class="accent">Certifications</h2>
+    <div class="cert-grid reveal">
+      <div class="cert-card">SC-200 — Microsoft Security Operations Analyst</div>
+      <div class="cert-card">CPENT — Certified Penetration Testing Professional</div>
+      <div class="cert-card">LPT — Licensed Penetration Tester</div>
+      <div class="cert-card">AWS Certified Cloud Practitioner</div>
+      <div class="cert-card">CC — Certified in Cybersecurity (ISC2)</div>
+    </div>
+  </div>
+</section>
+
+
+<section id="skills" class="section">
+  <div class="container grid-2">
+    
+    <!-- Left: Skills List -->
+    <div class="stack">
+      
+      <article class="card reveal">
+        <h4>Penetration Testing</h4>
+        <p>
+          Web & API security testing, OWASP Top 10, API Top 10, XSS, CSRF, IDOR, SQLi/NoSQLi, SSRF, 
+          authentication bypass, business logic flaws, and post-exploitation validation.
+        </p>
+      </article>
+      
+      <article class="card reveal" style="--delay:120ms">
+        <h4>SOC & Threat Detection</h4>
+        <p>
+          Microsoft Sentinel & Defender XDR, KQL hunting queries, custom detection rules, 
+          incident investigation, playbook automation, and MITRE ATT&CK mapping.
+        </p>
+      </article>
+      
+      <article class="card reveal" style="--delay:240ms">
+        <h4>Cloud Security Fundamentals</h4>
+        <p>
+          AWS fundamentals including IAM, S3, EC2, and VPC, basic cloud security controls,
+          identity and access management, and security monitoring integrations.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+<section id="projects" class="section">
+  <div class="container">
+
+    <article class="project reveal project--split">
+      <!-- LEFT: TEXT -->
+      <div class="project-left card">
+        <h3>Hybrid Identity & Security Infrastructure (Lab)</h3>
+        <p>
+          Designed and implemented a hybrid environment integrating
+          <strong>Microsoft Entra ID (P2)</strong> with on-prem
+          <strong>Windows Server Active Directory</strong> via
+          <strong>Microsoft Entra Connect (Azure AD Connect) Sync</strong>.
+          Built detections and automated response across
+          <strong>Microsoft Sentinel</strong> and <strong>Microsoft Defender XDR</strong>.
+        </p>
+
+        <ul class="project-points">
+         <li>Synced users and groups between on-prem Active Directory and Microsoft Entra ID, with write-back when needed.</li>
+  <li>Used Group Policy Objects (GPOs) to improve security — set PowerShell restrictions, enforced strong passwords, and controlled RDP access.</li>
+  <li>Ran attack simulations (password spray, PowerShell obfuscation, and living-off-the-land attacks) to validate Defender alerts.</li>
+  <li>Created Microsoft Sentinel analytic rules and custom <strong>KQL</strong> queries for threat hunting, with automatic incident grouping and enrichment.</li>
+  <li>Set up and tested Identity Protection, Conditional Access, and Self-Service Password Reset (SSPR).</li>
+  <li>Automated user onboarding, OU assignment, license setup, and policy application with PowerShell scripts.</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: GALLERY (5 images) -->
+      <div class="project-right gallery-5">
+        <!-- Use your real screenshots; keep alt texts meaningful -->
+        <figure class="shot shot--big">
+          <img loading="lazy" src="assets/Alerts.jpeg" alt="Alerts">
+        </figure>
+        <figure class="shot">
+          <img loading="lazy" src="assets/Detection_rule.jpeg" alt="Sentinel Detection Rule">
+        </figure>
+        <figure class="shot">
+          <img loading="lazy" src="assets/Entra_Connect.jpeg" alt="Entra_Connect">
+        </figure>
+        <figure class="shot">
+          <img loading="lazy" src="assets/Groups.jpeg" alt="Groups">
+        </figure>
+        <figure class="shot">
+          <img loading="lazy" src="assets/Users.jpeg" alt="Users">
+        </figure>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+ <section id="experience" class="section">
+  <div class="container">
+    <article class="card reveal">
+      <h2>Experience</h2>
+      <h3>Information Security Associate — Policybazaar</h3>
+      <p><em>Nov 2024 – Apr 2025</em></p>
+      <ul>
+        <li>Conducted manual and automated web/API penetration tests using tools such as <strong>Burp Suite Pro</strong>, <strong>OWASP ZAP</strong>, <strong>Postman</strong>, and <strong>Noname (Akamai)</strong>.</li>
+        <li>Identified and validated OWASP Top 10 and API Top 10 vulnerabilities including <strong>SQL Injection</strong>, <strong>Cross-Site Scripting (XSS)</strong>, <strong>Insecure Direct Object References (IDOR)</strong>, and <strong>Broken Authentication</strong>.</li>
+        <li>Performed in-depth reconnaissance, fuzzing, input validation testing, and crafted custom payloads to exploit real-world security flaws.</li>
+        <li>Documented findings in detailed technical reports with reproducible steps, proof-of-concepts (PoCs), and prioritized risk ratings.</li>
+        <li>Worked closely with development and QA teams to triage, reproduce, and remediate vulnerabilities, integrating security into the SDLC pipeline.</li>
+        <li>Managed issue tracking, validation, and coordination through tools like <strong>JIRA</strong>.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="achievements" class="section">
+  <div class="container">
+    <article class="card reveal">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Ranked in the <strong>Top 1%</strong> on TryHackMe, recognized for consistent high performance in offensive cybersecurity labs and real-world attack simulation rooms.</li>
+        <li>Acknowledged by <strong>NCIIPC</strong> (National Critical Information Infrastructure Protection Centre, Govt. of India) for identifying and reporting a critical vulnerability in national critical infrastructure.</li>
+        <li>Featured in <strong>OLA Security Hall of Fame</strong> for impactful vulnerability disclosures, with monetary rewards and public recognition.</li>
+        <li>Contributing member of <strong>HackerOne</strong> and <strong>Bugcrowd</strong>, actively participating in private and public bug bounty programs with multiple accepted reports on high-severity issues.</li>
+        <li>Recognized by <strong>HackTheBox</strong> through swags and community shout-outs for responsibly reporting critical bugs on labs and retired machines.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+   <section id="contact" class="section">
+  <div class="container">
+    <article class="card reveal">
+      <h2>Contact</h2>
+      <p>Let’s connect — I’m always open to discussing cybersecurity, collaborations, or new opportunities.</p>
+
+      <!-- Social Links -->
+      <div class="social-links" style="margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="https://www.linkedin.com/in/khushahalsharma" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="mailto:sharmapckhushal007@gmail.com" class="btn btn-ghost">Email</a>
+        <a href="https://twitter.com/khushahalsharm" target="_blank" class="btn btn-ghost">Twitter</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+  </main>
+
+  <button class="to-top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
