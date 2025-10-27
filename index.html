@@ -3,204 +3,1108 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Khushahal Sharma — Portfolio</title>
+  <title>Khushahal Sharma — Cybersecurity Portfolio</title>
   <meta name="description" content="Penetration testing, SOC detections, and cloud security. Projects, experience, and contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #0a192f;
+      --secondary: #112240;
+      --accent: #64ffda;
+      --accent-dark: #52dbb6;
+      --text-primary: #e6f1ff;
+      --text-secondary: #8892b0;
+      --text-light: #a8b2d1;
+      --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+      --shadow-lg: 0 20px 40px -15px rgba(2, 12, 27, 0.8);
+      --gradient: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+      --accent-gradient: linear-gradient(135deg, #64ffda 0%, #52dbb6 100%);
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: var(--gradient);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 20px 0;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    }
+
+    .nav.scrolled {
+      padding: 15px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    .section {
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2.accent {
+      color: var(--accent);
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    strong {
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 180px 0 120px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      background: linear-gradient(135deg, #e6f1ff 0%, #64ffda 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--secondary);
+      padding: 30px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* About Section */
+    #about {
+      padding-top: 100px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text {
+      padding-right: 20px;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .cert-card {
+      background-color: var(--secondary);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      text-align: center;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .cert-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    /* Projects */
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-left {
+      flex: 1;
+    }
+
+    .project-right {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-points {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .project-points li {
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .project-points li::before {
+      content: '▹';
+      position: absolute;
+      left: -20px;
+      color: var(--accent);
+    }
+
+    .shot {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .shot::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(100, 255, 218, 0.1);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .shot:hover::after {
+      opacity: 1;
+    }
+
+    .shot:hover img {
+      transform: scale(1.05);
+    }
+
+    .shot--big {
+      grid-column: span 2;
+    }
+
+    /* Experience & Achievements */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--accent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 80px;
+    }
+
+    .timeline-date {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      background: var(--secondary);
+      padding: 25px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .achievement-card {
+      background: var(--secondary);
+      padding: 30px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-gradient);
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .achievement-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .achievement-card h3 {
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+
+    .achievement-card p {
+      color: var(--text-secondary);
+    }
+
+    /* Contact */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: rgba(100, 255, 218, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px rgba(100, 255, 218, 0.3);
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: var(--primary);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #52dbb6 0%, #3fc9a8 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px rgba(100, 255, 218, 0.5);
+    }
+
+    /* Back to Top Button */
+    .to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: var(--primary);
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      z-index: 100;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px -10px rgba(100, 255, 218, 0.5);
+    }
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid rgba(100, 255, 218, 0.1);
+    }
+
+    .footer p {
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 992px) {
+      .project {
+        flex-direction: row;
+      }
+      
+      .project-right {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .shot--big {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .project-right {
+        grid-template-columns: 1fr;
+      }
+      
+      .shot--big {
+        grid-column: span 1;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 200px;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
-    <ul>
-      <li><a class="nav-link" href="#home">About</a></li>
-      <li><a class="nav-link" href="#certifications">Certifications</a></li>
-      <li><a class="nav-link" href="#skills">Skills</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#experience">Experience</a></li>
-      <li><a class="nav-link" href="#achievements">Achievements</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="#" class="logo">Khushahal Sharma</a>
+      <ul>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#achievements">Achievements</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </nav>
 
-  <main id="home">
-<section id="about" class="section">
-  <div class="container">
-    <div class="reveal">
-      <h2 class="accent">About Me</h2>
-      <p>
-        I am a cybersecurity analyst with experience in both <strong>Vulnerability Assessment & Penetration Testing (VAPT)</strong> 
-        and <strong>Security Operations (SOC)</strong>. My background includes 6 months of professional engagement and over a year of 
-        self-driven projects in offensive and defensive security.
-      </p>
-      <p>
-        Skilled in discovering and exploiting <strong>web/API vulnerabilities</strong> using tools like 
-        <strong>Burp Suite Pro</strong> and <strong>Nessus</strong>, as well as detecting and responding to threats with 
-        <strong>Microsoft Sentinel</strong>, <strong>Defender XDR</strong>, and <strong>AWS security services</strong>.
-      </p>
-      <p>
-        Proficient in <strong>KQL</strong>, <strong>OWASP Top 10</strong>, <strong>MITRE ATT&CK</strong>, and AWS fundamentals such as 
-        <strong>IAM</strong>, <strong>S3</strong>, <strong>EC2</strong>, and <strong>VPC</strong>. I focus on real-world attack simulations, 
-        cloud security, and building effective threat detection strategies.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="certifications" class="section">
-  <div class="container">
-    <h2 class="accent">Certifications</h2>
-    <div class="cert-grid reveal">
-      <div class="cert-card">SC-200 — Microsoft Security Operations Analyst</div>
-      <div class="cert-card">CPENT — Certified Penetration Testing Professional</div>
-      <div class="cert-card">LPT — Licensed Penetration Tester</div>
-      <div class="cert-card">AWS Certified Cloud Practitioner</div>
-      <div class="cert-card">CC — Certified in Cybersecurity (ISC2)</div>
-    </div>
-  </div>
-</section>
-
-
-<section id="skills" class="section">
-  <div class="container grid-2">
-    
-    <!-- Left: Skills List -->
-    <div class="stack">
-      
-      <article class="card reveal">
-        <h4>Penetration Testing</h4>
-        <p>
-          Web & API security testing, OWASP Top 10, API Top 10, XSS, CSRF, IDOR, SQLi/NoSQLi, SSRF, 
-          authentication bypass, business logic flaws, and post-exploitation validation.
-        </p>
-      </article>
-      
-      <article class="card reveal" style="--delay:120ms">
-        <h4>SOC & Threat Detection</h4>
-        <p>
-          Microsoft Sentinel & Defender XDR, KQL hunting queries, custom detection rules, 
-          incident investigation, playbook automation, and MITRE ATT&CK mapping.
-        </p>
-      </article>
-      
-      <article class="card reveal" style="--delay:240ms">
-        <h4>Cloud Security Fundamentals</h4>
-        <p>
-          AWS fundamentals including IAM, S3, EC2, and VPC, basic cloud security controls,
-          identity and access management, and security monitoring integrations.
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-<section id="projects" class="section">
-  <div class="container">
-
-    <article class="project reveal project--split">
-      <!-- LEFT: TEXT -->
-      <div class="project-left card">
-        <h3>Hybrid Identity & Security Infrastructure (Lab)</h3>
-        <p>
-          Designed and implemented a hybrid environment integrating
-          <strong>Microsoft Entra ID (P2)</strong> with on-prem
-          <strong>Windows Server Active Directory</strong> via
-          <strong>Microsoft Entra Connect (Azure AD Connect) Sync</strong>.
-          Built detections and automated response across
-          <strong>Microsoft Sentinel</strong> and <strong>Microsoft Defender XDR</strong>.
-        </p>
-
-        <ul class="project-points">
-         <li>Synced users and groups between on-prem Active Directory and Microsoft Entra ID, with write-back when needed.</li>
-  <li>Used Group Policy Objects (GPOs) to improve security — set PowerShell restrictions, enforced strong passwords, and controlled RDP access.</li>
-  <li>Ran attack simulations (password spray, PowerShell obfuscation, and living-off-the-land attacks) to validate Defender alerts.</li>
-  <li>Created Microsoft Sentinel analytic rules and custom <strong>KQL</strong> queries for threat hunting, with automatic incident grouping and enrichment.</li>
-  <li>Set up and tested Identity Protection, Conditional Access, and Self-Service Password Reset (SSPR).</li>
-  <li>Automated user onboarding, OU assignment, license setup, and policy application with PowerShell scripts.</li>
-        </ul>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="reveal">
+          <h1>Khushahal Sharma</h1>
+          <p class="hero-subtitle">Cybersecurity Analyst specializing in Penetration Testing, SOC Operations & Cloud Security</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-code"></i> View My Work
+            </a>
+            <a href="#contact" class="btn">
+              <i class="fas fa-paper-plane"></i> Get In Touch
+            </a>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- RIGHT: GALLERY (5 images) -->
-      <div class="project-right gallery-5">
-        <!-- Use your real screenshots; keep alt texts meaningful -->
-        <figure class="shot shot--big">
-          <img loading="lazy" src="assets/Alerts.jpeg" alt="Alerts">
-        </figure>
-        <figure class="shot">
-          <img loading="lazy" src="assets/Detection_rule.jpeg" alt="Sentinel Detection Rule">
-        </figure>
-        <figure class="shot">
-          <img loading="lazy" src="assets/Entra_Connect.jpeg" alt="Entra_Connect">
-        </figure>
-        <figure class="shot">
-          <img loading="lazy" src="assets/Groups.jpeg" alt="Groups">
-        </figure>
-        <figure class="shot">
-          <img loading="lazy" src="assets/Users.jpeg" alt="Users">
-        </figure>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text reveal">
+            <h2 class="accent">About Me</h2>
+            <p>
+              My name is <strong>Khushahal Sharma</strong>, and I am a cybersecurity analyst with experience in both 
+              <strong>Vulnerability Assessment & Penetration Testing (VAPT)</strong> and <strong>Security Operations (SOC)</strong>. 
+              My background includes 6 months of professional engagement and over a year of self-driven projects 
+              in offensive and defensive security.
+            </p>
+            <p>
+              Skilled in discovering and exploiting <strong>web/API vulnerabilities</strong> using tools like 
+              <strong>Burp Suite Pro</strong> and <strong>Nessus</strong>, as well as detecting and responding to threats with 
+              <strong>Microsoft Sentinel</strong>, <strong>Defender XDR</strong>, and <strong>AWS security services</strong>.
+            </p>
+            <p>
+              Proficient in <strong>KQL</strong>, <strong>OWASP Top 10</strong>, <strong>MITRE ATT&CK</strong>, and AWS fundamentals 
+              such as <strong>IAM</strong>, <strong>S3</strong>, <strong>EC2</strong>, and <strong>VPC</strong>. I focus on real-world 
+              attack simulations, cloud security, and building effective threat detection strategies.
+            </p>
+          </div>
+          <div class="about-image reveal">
+            <div class="card">
+              <div class="profile-img-placeholder" style="width: 100%; height: 300px; background: var(--secondary); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                <i class="fas fa-user-secret" style="font-size: 5rem;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </article>
+    </section>
 
-  </div>
-</section>
-
-
-
- <section id="experience" class="section">
-  <div class="container">
-    <article class="card reveal">
-      <h2>Experience</h2>
-      <h3>Information Security Associate — Policybazaar</h3>
-      <p><em>Nov 2024 – Apr 2025</em></p>
-      <ul>
-        <li>Conducted manual and automated web/API penetration tests using tools such as <strong>Burp Suite Pro</strong>, <strong>OWASP ZAP</strong>, <strong>Postman</strong>, and <strong>Noname (Akamai)</strong>.</li>
-        <li>Identified and validated OWASP Top 10 and API Top 10 vulnerabilities including <strong>SQL Injection</strong>, <strong>Cross-Site Scripting (XSS)</strong>, <strong>Insecure Direct Object References (IDOR)</strong>, and <strong>Broken Authentication</strong>.</li>
-        <li>Performed in-depth reconnaissance, fuzzing, input validation testing, and crafted custom payloads to exploit real-world security flaws.</li>
-        <li>Documented findings in detailed technical reports with reproducible steps, proof-of-concepts (PoCs), and prioritized risk ratings.</li>
-        <li>Worked closely with development and QA teams to triage, reproduce, and remediate vulnerabilities, integrating security into the SDLC pipeline.</li>
-        <li>Managed issue tracking, validation, and coordination through tools like <strong>JIRA</strong>.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section id="achievements" class="section">
-  <div class="container">
-    <article class="card reveal">
-      <h2>Achievements</h2>
-      <ul>
-        <li>Ranked in the <strong>Top 1%</strong> on TryHackMe, recognized for consistent high performance in offensive cybersecurity labs and real-world attack simulation rooms.</li>
-        <li>Acknowledged by <strong>NCIIPC</strong> (National Critical Information Infrastructure Protection Centre, Govt. of India) for identifying and reporting a critical vulnerability in national critical infrastructure.</li>
-        <li>Featured in <strong>OLA Security Hall of Fame</strong> for impactful vulnerability disclosures, with monetary rewards and public recognition.</li>
-        <li>Contributing member of <strong>HackerOne</strong> and <strong>Bugcrowd</strong>, actively participating in private and public bug bounty programs with multiple accepted reports on high-severity issues.</li>
-        <li>Recognized by <strong>HackTheBox</strong> through swags and community shout-outs for responsibly reporting critical bugs on labs and retired machines.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-   <section id="contact" class="section">
-  <div class="container">
-    <article class="card reveal">
-      <h2>Contact</h2>
-      <p>Let’s connect — I’m always open to discussing cybersecurity, collaborations, or new opportunities.</p>
-
-      <!-- Social Links -->
-      <div class="social-links" style="margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="https://www.linkedin.com/in/khushahalsharma" target="_blank" class="btn btn-ghost">LinkedIn</a>
-        <a href="mailto:sharmapckhushal007@gmail.com" class="btn btn-ghost">Email</a>
-        <a href="https://twitter.com/khushahalsharm" target="_blank" class="btn btn-ghost">Twitter</a>
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Certifications</h2>
+          <p>Industry-recognized credentials validating my cybersecurity expertise</p>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card reveal">
+            <div class="cert-icon">
+              <i class="fab fa-microsoft"></i>
+            </div>
+            <div>SC-200 — Microsoft Security Operations Analyst</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>CPENT — Certified Penetration Testing Professional</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-icon">
+              <i class="fas fa-user-secret"></i>
+            </div>
+            <div>LPT — Licensed Penetration Tester</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div>AWS Certified Cloud Practitioner</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div>CC — Certified in Cybersecurity (ISC2)</div>
+          </div>
+        </div>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
 
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Skills</h2>
+          <p>Technical expertise across offensive and defensive security domains</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card reveal">
+            <h4><i class="fas fa-crosshairs"></i> Penetration Testing</h4>
+            <p>
+              Web & API security testing, OWASP Top 10, API Top 10, XSS, CSRF, IDOR, SQLi/NoSQLi, SSRF, 
+              authentication bypass, business logic flaws, and post-exploitation validation.
+            </p>
+          </article>
+          
+          <article class="card reveal" style="--delay:120ms">
+            <h4><i class="fas fa-eye"></i> SOC & Threat Detection</h4>
+            <p>
+              Microsoft Sentinel & Defender XDR, KQL hunting queries, custom detection rules, 
+              incident investigation, playbook automation, and MITRE ATT&CK mapping.
+            </p>
+          </article>
+          
+          <article class="card reveal" style="--delay:240ms">
+            <h4><i class="fas fa-cloud"></i> Cloud Security Fundamentals</h4>
+            <p>
+              AWS fundamentals including IAM, S3, EC2, and VPC, basic cloud security controls,
+              identity and access management, and security monitoring integrations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Projects</h2>
+          <p>Hands-on security implementations and lab environments</p>
+        </div>
+
+        <article class="project reveal">
+          <div class="project-left card">
+            <h3>Hybrid Identity & Security Infrastructure (Lab)</h3>
+            <p>
+              Designed and implemented a hybrid environment integrating
+              <strong>Microsoft Entra ID (P2)</strong> with on-prem
+              <strong>Windows Server Active Directory</strong> via
+              <strong>Microsoft Entra Connect (Azure AD Connect) Sync</strong>.
+              Built detections and automated response across
+              <strong>Microsoft Sentinel</strong> and <strong>Microsoft Defender XDR</strong>.
+            </p>
+
+            <ul class="project-points">
+              <li>Synced users and groups between on-prem Active Directory and Microsoft Entra ID, with write-back when needed.</li>
+              <li>Used Group Policy Objects (GPOs) to improve security — set PowerShell restrictions, enforced strong passwords, and controlled RDP access.</li>
+              <li>Ran attack simulations (password spray, PowerShell obfuscation, and living-off-the-land attacks) to validate Defender alerts.</li>
+              <li>Created Microsoft Sentinel analytic rules and custom <strong>KQL</strong> queries for threat hunting, with automatic incident grouping and enrichment.</li>
+              <li>Set up and tested Identity Protection, Conditional Access, and Self-Service Password Reset (SSPR).</li>
+              <li>Automated user onboarding, OU assignment, license setup, and policy application with PowerShell scripts.</li>
+            </ul>
+          </div>
+
+          <div class="project-right">
+            <figure class="shot shot--big">
+              <img loading="lazy" src="assets/Alerts.jpeg" alt="Security Alerts Dashboard">
+            </figure>
+            <figure class="shot">
+              <img loading="lazy" src="assets/Detection_rule.jpeg" alt="Sentinel Detection Rule">
+            </figure>
+            <figure class="shot">
+              <img loading="lazy" src="assets/Entra_Connect.jpeg" alt="Entra Connect Configuration">
+            </figure>
+            <figure class="shot">
+              <img loading="lazy" src="assets/Groups.jpeg" alt="Active Directory Groups">
+            </figure>
+            <figure class="shot">
+              <img loading="lazy" src="assets/Users.jpeg" alt="User Management">
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Experience</h2>
+          <p>Professional journey in cybersecurity</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content card">
+              <h3>Information Security Associate — Policybazaar</h3>
+              <p><em>Nov 2024 – Apr 2025</em></p>
+              <ul class="project-points">
+                <li>Conducted manual and automated web/API penetration tests using tools such as <strong>Burp Suite Pro</strong>, <strong>OWASP ZAP</strong>, <strong>Postman</strong>, and <strong>Noname (Akamai)</strong>.</li>
+                <li>Identified and validated OWASP Top 10 and API Top 10 vulnerabilities including <strong>SQL Injection</strong>, <strong>Cross-Site Scripting (XSS)</strong>, <strong>Insecure Direct Object References (IDOR)</strong>, and <strong>Broken Authentication</strong>.</li>
+                <li>Performed in-depth reconnaissance, fuzzing, input validation testing, and crafted custom payloads to exploit real-world security flaws.</li>
+                <li>Documented findings in detailed technical reports with reproducible steps, proof-of-concepts (PoCs), and prioritized risk ratings.</li>
+                <li>Worked closely with development and QA teams to triage, reproduce, and remediate vulnerabilities, integrating security into the SDLC pipeline.</li>
+                <li>Managed issue tracking, validation, and coordination through tools like <strong>JIRA</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Achievements</h2>
+          <p>Recognition for excellence in cybersecurity</p>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>Top 1% on TryHackMe</h3>
+            <p>Ranked in the <strong>Top 1%</strong> on TryHackMe, recognized for consistent high performance in offensive cybersecurity labs and real-world attack simulation rooms.</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>NCIIPC Recognition</h3>
+            <p>Recognized by <strong>NCIIPC</strong> (National Critical Information Infrastructure Protection Centre, Govt. of India) for responsibly identifying and reporting a critical vulnerability in national critical infrastructure.</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-bug"></i>
+            </div>
+            <h3>HackTheBox Recognition</h3>
+            <p>Recognized by <strong>HackTheBox</strong> with swags and community acknowledgments for reporting critical bugs on labs and retired machines.</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Bug Bounty Success</h3>
+            <p>Successfully identified and reported vulnerabilities in well-known platforms like <strong>Astra Security, Hivelocity, Acronis, Zomato, OLA, Uber, Sprinklr</strong>, and Government websites in India through bug bounty and responsible disclosure programs.</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>OLA Security Hall of Fame</h3>
+            <p>Featured in <strong>OLA Security Hall of Fame</strong> for impactful vulnerability disclosures, with monetary rewards and public recognition.</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3>Industry Certifications</h3>
+            <p>Earned multiple industry-recognized certifications including <strong>CPENT, LPT, SC-200, CC (ISC2), and AWS Cloud Practitioner</strong>, validating both offensive and defensive security expertise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="accent">Contact</h2>
+          <p>Let's connect — I'm always open to discussing cybersecurity, collaborations, or new opportunities.</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item reveal">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>sharmapckhushal007@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item reveal">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>India</p>
+              </div>
+            </div>
+            
+            <div class="contact-item reveal">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4>Availability</h4>
+                <p>Open to new opportunities</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card reveal">
+            <h3>Get In Touch</h3>
+            <p>Feel free to reach out for collaborations, job opportunities, or just to chat about cybersecurity.</p>
+            
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/khushahalsharma" target="_blank" class="btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="mailto:sharmapckhushal007@gmail.com" class="btn">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+              <a href="https://twitter.com/khushahalsharm" target="_blank" class="btn">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <button class="to-top" aria-label="Back to top">↑</button>
-  <script src="script.js"></script>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2023 Khushahal Sharma. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Reveal animations on scroll
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+        
+        revealElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          
+          if (elementTop < windowHeight - revealPoint) {
+            element.classList.add('active');
+          }
+        });
+      };
+      
+      // Initial check
+      revealOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', revealOnScroll);
+      
+      // Back to top button
+      const toTopButton = document.querySelector('.to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          toTopButton.style.display = 'block';
+        } else {
+          toTopButton.style.display = 'none';
+        }
+      });
+      
+      toTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Navbar background on scroll
+      const nav = document.querySelector('.nav');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navMenu = document.querySelector('.nav ul');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+      });
+      
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (window.innerWidth <= 991) {
+              navMenu.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
